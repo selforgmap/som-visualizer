@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SomService } from './services/som.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'som-visualizer';
+  som: SomService;
+
+  constructor(somService: SomService){
+      this.som = somService;
+  }
+
+  test(){
+    console.log("test");
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SomService } from '../../services/som.service';
 
 @Component({
   selector: 'app-configurations',
@@ -7,35 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationsComponent implements OnInit {
 
-  readonly gridTypes = ['Rectangular', 'Hexagonal'];
+  readonly gridTypes                 = ['Rectangular', 'Hexagonal'];
   readonly nodeInitializationMethods = ['Random', 'PCA'];
-  readonly learningRateTypes = ['Constant'];
-  readonly neighborhoodTypes = ['Bubble', 'Gaussian'];
+  readonly learningRateTypes         = ['Constant'];
+  readonly neighborhoodTypes         = ['Bubble', 'Gaussian'];
 
-  xDim: number;
-  yDim: number;
-  dimension: number;
-  gridType: string;
-  iterationLimit: number;
-  startingLearningRate: number;
-  nodeInitializationMethod: string;
-  learningRateType: string;
-  neighborhoodType: string;
-  minNodeWeight: number;
-  maxNodeWeight: number;
+  som: SomService;
 
-  constructor() {
-    this.xDim = 5;
-    this.yDim = 5;
-    this.dimension = 3;
-    this.gridType = "Rectangular";
-    this.iterationLimit = 100;
-    this.startingLearningRate = 0.4;
-    this.nodeInitializationMethod = 'Random';
-    this.learningRateType = 'Constant';
-    this.neighborhoodType = 'Bubble';
-    this.minNodeWeight = 1;
-    this.maxNodeWeight = 100;
+  constructor(somService: SomService) {
+    this.som = somService;
   }
 
   ngOnInit() {

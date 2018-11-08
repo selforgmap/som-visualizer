@@ -7,7 +7,7 @@
   <!-- Sidebar -->
   <mat-drawer id="drawer-sidebar" mode="side" opened>
     <app-configurations></app-configurations>
-    <button mat-raised-button color="primary">Start training</button>
+    <button mat-raised-button color="primary" (click)="som.train()">Start training</button>
   </mat-drawer>
 
   <!-- Content -->

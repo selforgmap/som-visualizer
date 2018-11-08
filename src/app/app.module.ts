@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Components
 import { AppComponent } from './app.component';
+import { ConfigurationsComponent } from './components/configurations/configurations.component';
+
+// Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
@@ -11,7 +15,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 
-import { ConfigurationsComponent } from './components/configurations/configurations.component';
+import { HttpClientModule } from '@angular/common/http';
+
+// Services
+import { SomService } from './services/som.service';
 
 
 
@@ -23,6 +30,8 @@ import { ConfigurationsComponent } from './components/configurations/configurati
   imports: [
     BrowserModule,
 
+    HttpClientModule,
+
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -33,7 +42,7 @@ import { ConfigurationsComponent } from './components/configurations/configurati
     MatInputModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [SomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
