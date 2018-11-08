@@ -1,0 +1,87 @@
+<div id="configurations">
+  <!-- X Dim -->
+  <mat-form-field>
+      <input matInput type="number" min="0" placeholder="X Dimension" [(value)]="this.xDim">
+  </mat-form-field>
+  <br>
+
+  <!-- Y Dim -->
+  <mat-form-field>
+      <input matInput type="number" min="0" placeholder="Y Dimension" [(value)]="this.yDim">
+  </mat-form-field>
+  <br>
+
+  <!-- Dimension -->
+  <mat-form-field>
+      <input matInput type="number" min="0" placeholder="Dimension" [(value)]="this.dimension">
+  </mat-form-field>
+  <br>
+
+  <!-- Grid Type -->
+  <mat-form-field>
+      <mat-select placeholder="Grid Type" [(value)]="gridType">
+        <mat-option *ngFor="let item of gridTypes" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+
+  <!-- Iteration Limit -->
+  <mat-form-field>
+      <input matInput type="number" min="0" placeholder="Iteration Limit" [(value)]="iterationLimit">
+  </mat-form-field>
+  <br>
+
+  <!-- Starting Learning Rate -->
+  <mat-form-field>
+      <input matInput type="number" step="0.01"  min="0" max="1" placeholder="Learning Rate" [(value)]="startingLearningRate">
+  </mat-form-field>
+  <br>
+
+  <!-- Node Initialization method -->
+  <mat-form-field>
+      <mat-select placeholder="Node initialization method" [(value)]="nodeInitializationMethod">
+        <mat-option *ngFor="let item of nodeInitializationMethods" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+
+  <ng-container *ngIf="nodeInitializationMethod == 'Random'">
+    <!-- Min node weight -->
+    <mat-form-field>
+        <input matInput type="number" min="0" placeholder="Min node weight" [(value)]="minNodeWeight">
+    </mat-form-field>
+    <br>
+
+    <!-- Max node weight -->
+    <mat-form-field>
+        <input matInput type="number" min="0" placeholder="Max node weight" [(value)]="maxNodeWeight">
+    </mat-form-field>
+    <br>
+  </ng-container>
+
+
+  <!-- Learning rate type -->
+  <mat-form-field>
+      <mat-select placeholder="Learning rate function" [(value)]="learningRateType">
+        <mat-option *ngFor="let item of learningRateTypes" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+
+  <!-- Neighborhood type -->
+  <mat-form-field>
+      <mat-select placeholder="Neighborhood function" [(value)]="neighborhoodType">
+        <mat-option *ngFor="let item of neighborhoodTypes" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+  
+</div>

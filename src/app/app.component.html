@@ -1,3 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-checkbox>Check me!</mat-checkbox>
-<mat-slide-toggle>Slide me!</mat-slide-toggle>
+<mat-toolbar>
+    <span>SOM Visualizer</span>
+</mat-toolbar>
+
+<mat-drawer-container id="main-container">
+  <!-- Sidebar -->
+  <mat-drawer id="drawer-sidebar" mode="side" opened>
+    <app-configurations></app-configurations>
+    <button mat-raised-button color="primary">Start training</button>
+  </mat-drawer>
+
+  <!-- Content -->
+  <mat-drawer-content id="drawer-content">
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
