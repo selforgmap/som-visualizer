@@ -8,15 +8,19 @@ import { SomService } from '../../services/som.service';
 })
 export class ConfigurationsComponent implements OnInit {
 
-  readonly gridTypes                 = ['Rectangular', 'Hexagonal'];
-  readonly nodeInitializationMethods = ['Random', 'PCA'];
-  readonly learningRateTypes         = ['Constant'];
-  readonly neighborhoodTypes         = ['Bubble', 'Gaussian'];
+  // Select item definitions
+  readonly gridTypes                 = [{'name': 'Rectangular', 'value': 'RECTANGULAR'},
+                                        {'name': 'Hexagonal', 'value': 'HEXAGONAL'}];
+  readonly nodeInitializationMethods = [{'name': 'Random', 'value': 'RANDOM'},
+                                        {'name': 'PCA', 'value': 'PCA'}];
+  readonly learningRateTypes         = [{'name': 'Constant', 'value': 'CONSTANT'}];
+  readonly neighborhoodTypes         = [{'name': 'Bubble', 'value': 'BUBBLE'},
+                                        {'name': 'Gaussian', 'value': 'GAUSSIAN'}];
 
   som: SomService;
 
   constructor(somService: SomService) {
-    this.som = somService;
+    this.som = somService; // TODO: Bind the service
   }
 
   ngOnInit() {

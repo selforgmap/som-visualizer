@@ -20,8 +20,8 @@
   <!-- Grid Type -->
   <mat-form-field>
       <mat-select placeholder="Grid Type" [(value)]="som.gridType">
-        <mat-option *ngFor="let item of gridTypes" [value]="item">
-          {{item}}
+        <mat-option *ngFor="let item of gridTypes" [value]="item.value">
+          {{ item.name }}
         </mat-option>
       </mat-select>
   </mat-form-field>
@@ -42,8 +42,8 @@
   <!-- Node Initialization method -->
   <mat-form-field>
       <mat-select placeholder="Node initialization method" [(value)]="som.nodeInitializationMethod">
-        <mat-option *ngFor="let item of nodeInitializationMethods" [value]="item">
-          {{item}}
+        <mat-option *ngFor="let item of nodeInitializationMethods" [value]="item.value">
+          {{ item.name }}
         </mat-option>
       </mat-select>
   </mat-form-field>
@@ -67,8 +67,8 @@
   <!-- Learning rate type -->
   <mat-form-field>
       <mat-select placeholder="Learning rate function" [(value)]="som.learningRateType">
-        <mat-option *ngFor="let item of learningRateTypes" [value]="item">
-          {{item}}
+        <mat-option *ngFor="let item of learningRateTypes" [value]="item.value">
+          {{ item.name }}
         </mat-option>
       </mat-select>
   </mat-form-field>
@@ -77,8 +77,8 @@
   <!-- Neighborhood type -->
   <mat-form-field>
       <mat-select placeholder="Neighborhood function" [(value)]="som.neighborhoodType">
-        <mat-option *ngFor="let item of neighborhoodTypes" [value]="item">
-          {{item}}
+        <mat-option *ngFor="let item of neighborhoodTypes" [value]="item.value">
+          {{ item.name }}
         </mat-option>
       </mat-select>
   </mat-form-field>
