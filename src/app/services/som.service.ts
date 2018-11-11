@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Subject }    from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,11 @@ export class SomService {
   readonly trainURL = this.baseURL + '/train';
   readonly headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  result: {};
-  dataset: {};
+  private dataset: number[][];
+  private response: {};
+
+  datasedChange:  Subject<number[][]> = new Subject<number[][]>();
+  responseChange: Subject<{}> = new Subject<{}>();
 
   constructor(private http: HttpClient) {
     this.xDim = 5;
@@ -40,9 +44,22 @@ export class SomService {
     this.minNodeWeight = 1;
     this.maxNodeWeight = 100;
 
-    this.dataset = [[1,1,1]]; // TODO: Set empty
+    this.setDataset([[0,0,0]]); // TODO: Set empty
   }
 
+  // Set dataset
+  setDataset(dataset: number[][]){
+    this.dataset = dataset;
+    this.datasedChange.next(this.dataset);
+  }
+
+  // Set response
+  setResponse(res: Object){
+    this.response = res;
+    this.responseChange.next(this.response);
+  }
+
+  // Start train
   train(){
     // Create request data
     var data = {
@@ -62,8 +79,10 @@ export class SomService {
 
     // Send train request
     this.http.post(this.trainURL, JSON.stringify(data), { headers: this.headers }).subscribe((res)=> {
-      this.result = res;
-      console.log(this.result); // TODO: Temp
+      this.setResponse(res);
+      console.log(this.response); // TODO: Temp
     })
   }
+
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SomService } from '../../services/som.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-plot',
@@ -8,17 +9,28 @@ import { SomService } from '../../services/som.service';
 })
 export class PlotComponent implements OnInit {
 
-  // Graph data
-  data = [
-    {
-      x: [1, 2, 3,4,5,5,6,6],
-      y: [2, 6, 3,4,5,6,6,7],
-      z: [2, 3, 4,4,5,6,6,7],
-      mode: 'markers',
-      type: 'scatter3d',
-      marker: { color: 'rgb(23, 190, 207)', size: 2 }
-    }
-  ]
+  private _responseSubscription: Subscription;
+  private _datasetSubscription:  Subscription;
+
+  // Graph Data: Dataset
+  dataset = {
+    x: [0],
+    y: [0],
+    z: [0],
+    mode: 'markers',
+    type: 'scatter3d',
+    marker: { color: 'rgb(50, 50, 255)', size: 3 }
+  }
+
+  // Graph data: Weight matrix
+  weight_matrix = {
+    x: [],
+    y: [],
+    z: [],
+    mode: 'markers',
+    type: 'scatter3d',
+    marker: { color: 'rgb(255, 50, 50)', size: 3 }
+  }
 
   // Graph layout
   layout = {
@@ -48,18 +60,34 @@ export class PlotComponent implements OnInit {
     }
   }
 
+  // Graph configuration
   config = {
     displayModeBar: false
   }
 
-  constructor(private som: SomService) { }
+  constructor(private som: SomService) {
+    // Subscribe som result change
+    this._responseSubscription = this.som.responseChange.subscribe((res) => {
+      this.weight_matrix['x'] = res['result']['weight_matrix'].map((value, index) => { return value[0]; });
+      this.weight_matrix['y'] = res['result']['weight_matrix'].map((value, index) => { return value[1]; });
+      this.weight_matrix['z'] = res['result']['weight_matrix'].map((value, index) => { return value[2]; });
+    });
 
-  loadResultsData(){
-
+    // Subscribe som dataset change
+    this._datasetSubscription = this.som.datasedChange.subscribe((dataset) => {
+      this.dataset['x'] = dataset.map((value, index) => { return value[0]; });
+      this.dataset['y'] = dataset.map((value, index) => { return value[1]; });
+      this.dataset['z'] = dataset.map((value, index) => { return value[2]; });
+    });
   }
   
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(){
+    this._datasetSubscription.unsubscribe();
+    this._responseSubscription.unsubscribe();
   }
 
 }
