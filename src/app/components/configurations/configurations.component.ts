@@ -17,9 +17,7 @@ export class ConfigurationsComponent implements OnInit {
   readonly neighborhoodTypes         = [{'name': 'Bubble', 'value': 'BUBBLE'},
                                         {'name': 'Gaussian', 'value': 'GAUSSIAN'}];
 
-  // som: SomService;
-
-  constructor(private  som: SomService) { }
+  constructor(private som: SomService) { }
 
   ngOnInit() {
   }

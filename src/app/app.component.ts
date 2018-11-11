@@ -8,13 +8,7 @@ import { SomService } from './services/som.service';
 })
 export class AppComponent {
   title = 'som-visualizer';
-  som: SomService;
 
-  constructor(somService: SomService){
-      this.som = somService;
-  }
+  constructor(private som: SomService){ }
 
-  test(){
-    console.log("test");
-  }
 }
