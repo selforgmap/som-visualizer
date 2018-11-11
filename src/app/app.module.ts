@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ConfigurationsComponent } from './components/configurations/configurations.component';
 import { PlotComponent } from './components/plot/plot.component';
+import { FormsModule } from '@angular/forms'; 
 
 // Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +16,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms'; 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -39,6 +42,7 @@ import { SomService } from './services/som.service';
     HttpClientModule,
     CommonModule,
     PlotlyModule,
+    FormsModule,
 
     BrowserAnimationsModule,
     MatButtonModule,
@@ -49,7 +53,8 @@ import { SomService } from './services/som.service';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
+    MatTabsModule,
+    MatSliderModule
   ],
   providers: [SomService],
   bootstrap: [AppComponent]

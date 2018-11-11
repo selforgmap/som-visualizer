@@ -6,8 +6,10 @@
 
 #drawer-sidebar {
   padding: 15px;
+  padding-top: 0;
 }
 
 #drawer-content {
   padding: 15px;
+  padding-top: 0;
 }

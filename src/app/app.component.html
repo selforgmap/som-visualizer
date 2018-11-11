@@ -1,18 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar>
+<!-- <mat-toolbar>
     <span>SOM Visualizer</span>
-</mat-toolbar>
+</mat-toolbar> -->
 
 <mat-drawer-container id="main-container">
   <!-- Sidebar -->
   <mat-drawer id="drawer-sidebar" mode="side" opened>
+    <h2 align="center">SOM Visualizer</h2>
     <app-configurations></app-configurations>
     <button mat-raised-button color="primary" (click)="som.train()">Start training</button>
   </mat-drawer>
 
   <!-- Content -->
   <mat-drawer-content id="drawer-content">
-    <app-plot></app-plot>
+    <mat-tab-group>
+      <!-- Plot tab -->
+      <mat-tab label="Plot">
+          <app-plot></app-plot>
+      </mat-tab>
+      <mat-tab label="U-Matrix"> (U Matrix) </mat-tab>
+      <mat-tab label="Weight Matrix"> (Weight Matrix) </mat-tab>
+    </mat-tab-group>
   </mat-drawer-content>
 </mat-drawer-container>
 

@@ -1,2 +1,4 @@
 <!-- Plot -->
 <plotly-plot [data]="[dataset, weight_matrix]" [layout]="layout" [config]="config"></plotly-plot>
+
+Point size: <mat-slider thumbLabel tickInterval="1" min="1" max="10" [(value)]="dataset['marker']['size']"></mat-slider>
