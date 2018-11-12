@@ -1,0 +1,17 @@
+<table>
+    <tr class="grid-row" *ngFor="let node of data">
+        <td class="grid-item" [ngStyle]="{opacity: (n[0]+n[1]+n[2])/300}" *ngFor="let n of node">
+          <!-- {{ n[0] }} -->
+        </td>
+    </tr>
+</table>
+  
+
+<table>
+    <tr class="grid-row" *ngFor="let node of data">
+        <td class="grid-itema" [style.backgroundColor]="'rgb(' + n[0]/100*255 + ',' + n[1]/100*255 + ',' + n[2]/100*255 + ')'" *ngFor="let n of node">
+          <!-- {{ n[0] }} -->
+        </td>
+    </tr>
+</table>
+  

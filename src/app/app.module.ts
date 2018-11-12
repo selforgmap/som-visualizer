@@ -18,6 +18,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
@@ -28,13 +30,15 @@ import { CommonModule } from '@angular/common';
 
 // Services
 import { SomService } from './services/som.service';
+import { UmatrixComponent } from './components/umatrix/umatrix.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigurationsComponent,
-    PlotComponent
+    PlotComponent,
+    UmatrixComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,8 @@ import { SomService } from './services/som.service';
     MatInputModule,
     MatSelectModule,
     MatTabsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSnackBarModule
   ],
   providers: [SomService],
   bootstrap: [AppComponent]

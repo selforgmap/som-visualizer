@@ -66,7 +66,7 @@ export class PlotComponent implements OnInit {
   }
 
   constructor(private som: SomService) {
-    // Subscribe som result change
+    // Subscribe som response change
     this._responseSubscription = this.som.responseChange.subscribe((res) => {
       this.weight_matrix['x'] = res['result']['weight_matrix'].map((value, index) => { return value[0]; });
       this.weight_matrix['y'] = res['result']['weight_matrix'].map((value, index) => { return value[1]; });

@@ -1,0 +1,18 @@
+.grid-row {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0;
+  
+}
+
+.grid-item {
+  background-color: green;
+  height: 15px;
+  width: 15px;
+}
+
+.grid-itema {
+  background-color: green;
+  height: 15px;
+  width: 15px;
+}
