@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Subject }    from 'rxjs';
+import { MatSnackBar } from '@angular/material';
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,7 @@ export class SomService {
   datasedChange:  Subject<number[][]> = new Subject<number[][]>();
   responseChange: Subject<{}> = new Subject<{}>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.xDim = 5;
     this.yDim = 5;
     this.dimension = 3;
@@ -44,7 +46,7 @@ export class SomService {
     this.minNodeWeight = 1;
     this.maxNodeWeight = 100;
 
-    this.setDataset([[0,0,0]]); // TODO: Set empty
+    this.setDataset([[0,0,0], [99,0,0], [0,99,0], [0,0,99]]); // TODO: Set empty
   }
 
   // Set dataset
@@ -80,6 +82,9 @@ export class SomService {
     // Send train request
     this.http.post(this.trainURL, JSON.stringify(data), { headers: this.headers }).subscribe((res)=> {
       this.setResponse(res);
+      this.snackBar.open("Training completed!", "OK", {
+        duration: 2000,
+      });
       console.log(this.response); // TODO: Temp
     })
   }
