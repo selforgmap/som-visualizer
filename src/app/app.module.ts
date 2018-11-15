@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
@@ -61,7 +63,8 @@ import { WeightMatrixComponent } from './components/weight-matrix/weight-matrix.
     MatSelectModule,
     MatTabsModule,
     MatSliderModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatGridListModule
   ],
   providers: [SomService],
   bootstrap: [AppComponent]
