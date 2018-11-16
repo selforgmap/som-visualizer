@@ -1,8 +1,4 @@
-<table>
-    <tr class="grid-row" *ngFor="let node of data">
-        <td class="grid-item" [style.backgroundColor]="'rgb(' + n[0]/100*255 + ',' + n[1]/100*255 + ',' + n[2]/100*255 + ')'" *ngFor="let n of node">
-          <!-- {{ n[0] }} -->
-        </td>
-    </tr>
-</table>
-  
+<!-- Weight matrix -->
+<div id="weight-matrix" class="center">
+    <canvas #rectangularLattice id="rectangular-lattice" width="250" height="250" style="border:1px solid"></canvas>
+</div>

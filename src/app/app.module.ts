@@ -23,8 +23,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
-
-
 import { HttpClientModule } from '@angular/common/http';
 import { PlotlyModule } from 'angular-plotly.js';
 import { CommonModule } from '@angular/common';
@@ -51,6 +49,7 @@ import { WeightMatrixComponent } from './components/weight-matrix/weight-matrix.
     CommonModule,
     PlotlyModule,
     FormsModule,
+    // Color,
 
     BrowserAnimationsModule,
     MatButtonModule,

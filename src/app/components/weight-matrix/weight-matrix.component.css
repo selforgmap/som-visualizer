@@ -9,3 +9,14 @@
   height: 15px;
   width: 15px;
 }
+
+.center {
+  margin: auto;
+  border: 3px solid #73AD21;
+  padding: 0px;
+  width: 100%;
+}
+
+canvas {
+
+}
