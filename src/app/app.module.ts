@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { SomService } from './services/som.service';
 import { UmatrixComponent } from './components/umatrix/umatrix.component';
 import { WeightMatrixComponent } from './components/weight-matrix/weight-matrix.component';
+import { QuadgridComponent } from './components/quadgrid/quadgrid.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { WeightMatrixComponent } from './components/weight-matrix/weight-matrix.
     ConfigurationsComponent,
     PlotComponent,
     UmatrixComponent,
-    WeightMatrixComponent
+    WeightMatrixComponent,
+    QuadgridComponent
   ],
   imports: [
     BrowserModule,
