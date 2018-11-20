@@ -18,8 +18,7 @@ export class QuadgridComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   ngAfterViewInit(): void {
     // Load canvas element

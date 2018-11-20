@@ -33,6 +33,7 @@ import { SomService } from './services/som.service';
 import { UmatrixComponent } from './components/umatrix/umatrix.component';
 import { WeightMatrixComponent } from './components/weight-matrix/weight-matrix.component';
 import { QuadgridComponent } from './components/quadgrid/quadgrid.component';
+import { HexgridComponent } from './components/hexgrid/hexgrid.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { QuadgridComponent } from './components/quadgrid/quadgrid.component';
     PlotComponent,
     UmatrixComponent,
     WeightMatrixComponent,
-    QuadgridComponent
+    QuadgridComponent,
+    HexgridComponent
   ],
   imports: [
     BrowserModule,
