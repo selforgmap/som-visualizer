@@ -19,9 +19,10 @@ export class WeightMatrixComponent implements OnInit {
     // Subscribe som response change
     this._responseSubscription = this.som.responseChange.subscribe((res) => {
       var x_dim = res['config']['x_dim'];
+      var y_dim = res['config']['y_dim'];
       var matrix = res['result']['weight_matrix']; 
       // Draw weight matrix graph
-      this.quadgrid.setData(matrix, x_dim);
+      this.quadgrid.setData(matrix, x_dim, y_dim);
     });
   }
 

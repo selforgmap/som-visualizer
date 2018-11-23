@@ -9,27 +9,19 @@ export class HexgridComponent implements OnInit {
 
   private canvasElement: HTMLCanvasElement;
   private canvasContext: CanvasRenderingContext2D;
-  private rectSize: number;
-  private gap: number = 0;
   private boardSize: number = 250;
-  private width: number;
-
+  private x_dim: number;
+  private y_dim: number;
 
   hexHeight: number;
   hexRadius: number;
   hexRectangleHeight: number;
   hexRectangleWidth: number;
-  hexagonAngle: number = 0.523598776; // 30 degrees in radians
-  sideLength: number = 10
-  boardWidth: number = 100;
-  boardHeight: number = 100;
+  sideLength: number;
 
-  constructor() {
-    this.hexHeight = Math.sin(this.hexagonAngle) * this.sideLength;
-    this.hexRadius = Math.cos(this.hexagonAngle) * this.sideLength;
-    this.hexRectangleHeight = this.sideLength + 2 * this.hexHeight;
-    this.hexRectangleWidth = 2 * this.hexRadius;
-  }
+  HEXAGON_ANGLE: number = 0.523598776; // 30 degrees in radians
+
+  constructor() { }
 
   ngOnInit() { }
 
@@ -45,20 +37,34 @@ export class HexgridComponent implements OnInit {
   }
 
   // Set matrix data
-  public setData(matrix, width){
-    this.width = width;
-    this.rectSize = this.boardSize / this.width;
-    this.drawBoardData(matrix);
+  public setData(matrix, x_dim, y_dim){
+    this.prepareGrid(x_dim, y_dim);
+    this.drawGridData(matrix);
   }
 
-  // Draw weight matrix board
-  drawBoardData(matrix){
+  // Prepare grid
+  prepareGrid(x_dim, y_dim){
+    // Clear grid
+    this.canvasContext.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+
+    this.x_dim = x_dim;
+    this.y_dim = y_dim;
+    this.sideLength = this.boardSize  / (2 * Math.max(this.x_dim, this.y_dim) + 1) / Math.cos(this.HEXAGON_ANGLE);
+
+    this.hexHeight = Math.sin(this.HEXAGON_ANGLE) * this.sideLength;
+    this.hexRadius = Math.cos(this.HEXAGON_ANGLE) * this.sideLength;
+    this.hexRectangleHeight = this.sideLength + 2 * this.hexHeight;
+    this.hexRectangleWidth = 2 * this.hexRadius;
+  }
+
+  // Draw weight matrix grid
+  drawGridData(matrix){
     var i, j;
     for(let c = 0; c < matrix.length; ++c){
 
       // Calculate i,j positions of the box
-      i = c % this.width;
-      j = Math.floor(c / this.width);
+      i = c % this.x_dim;
+      j = Math.floor(c / this.x_dim);
 
       // Generate RGB values from first 3 data values
       var r = Math.floor(matrix[c][0] * 255 / 100);
@@ -69,7 +75,6 @@ export class HexgridComponent implements OnInit {
         this.canvasContext,
         i * this.hexRectangleWidth + ((j % 2) * this.hexRadius), 
         j * (this.sideLength + this.hexHeight), 
-        this.rectSize,
         `rgb(${r}, ${g}, ${b})`
       );
     }
@@ -77,7 +82,7 @@ export class HexgridComponent implements OnInit {
 
 
   // Draw box
-  drawBox(context, x, y, recSize, color){
+  drawBox(context, x, y, color){
     context.beginPath();
     context.moveTo(x + this.hexRadius, y);
     context.lineTo(x + this.hexRectangleWidth, y + this.hexHeight);
