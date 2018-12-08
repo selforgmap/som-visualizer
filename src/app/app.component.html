@@ -22,6 +22,22 @@
 <!-- Sessions -->
 <p-tabView>
     <p-tabPanel *ngFor="let item of sessions; let i = index" [header]="item.header" [selected]="i == 0" [closable]="true">
+        <!-- Content -->
+        <div class="p-grid">
+            <!-- Configurations -->
+            <div class="p-col-4">
+                <app-params></app-params>
+            </div>
+            <div class="p-col-8"></div>
+        </div>
+
+
+
+
+
+
+
+
         {{item.content}}
     </p-tabPanel>
 </p-tabView>

@@ -1,0 +1,61 @@
+<p-panel header="Parameters" [toggleable]="false" [style]="{'margin-bottom':'20px'}">
+    <!-- Neural Network -->
+    <p-fieldset legend="Neural Network">
+        <div class="input-header">Size</div>
+        <div class="input-set">
+            <!-- X Dim -->
+            <span class="input-label">X Dim </span>
+            <p-spinner size="3" [(ngModel)]="xDim" [min]="0" [max]="1000"></p-spinner>
+            
+            <!-- Y Dim -->
+            <span class="input-label">Y Dim </span>
+            <p-spinner size="3" [(ngModel)]="yDim" [min]="0" [max]="1000"></p-spinner>
+        </div>
+    
+        <!-- Dimension -->
+        <div class="input-set">
+            <div class="input-header">Dimension</div>
+            <p-spinner size="5"  [(ngModel)]="dimension" [disabled]="autoDimenstion" [min]="0" [max]="1000"></p-spinner>
+            <p-checkbox class="margin-left" [(ngModel)]="autoDimenstion" binary="true" label="Auto"></p-checkbox>
+        </div>
+
+        <!-- Grid Type -->
+        <div class="input-set">
+            <div class="input-header">Grid Type</div>
+            <p-selectButton [options]="gridTypeValues" [(ngModel)]="gridType"></p-selectButton>
+        </div>
+        <br>
+
+    </p-fieldset>
+
+    <!-- Training  -->
+    <p-fieldset legend="Neural Network">
+        <!-- Learning Rate -->
+        <div class="input-set">
+            <div class="input-header">Learning Rate</div>
+            <p-spinner size="5" [(ngModel)]="learningRate" [step]="0.01" [min]="0.01" [max]="1"></p-spinner>
+        </div>
+
+        <!-- Learning Rate method -->
+        <div class="input-set">
+            <div class="input-header">Learning Rate method</div>
+            <p-selectButton [options]="learningRateMethodValues" [(ngModel)]="learningRateMethod"></p-selectButton><br>
+        </div>
+    
+        <!-- Initialization method -->
+        <div class="input-set">
+            <div class="input-header">Initialization method</div>
+            <p-selectButton [options]="initializationMethodValues" [(ngModel)]="initializationMethod"></p-selectButton>
+        </div>
+    
+        <!-- Neighborhood method -->
+        <div class="input-set">
+            <div class="input-header">Neighborhood method</div>
+            <p-selectButton [options]="neighborhoodMethodValues" [(ngModel)]="neighborhoodMethod"></p-selectButton>
+        </div>
+        <br>
+
+      </p-fieldset>
+ 
+</p-panel>
+

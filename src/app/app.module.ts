@@ -16,14 +16,21 @@ import { TabViewModule } from 'primeng/tabview';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { SpinnerModule } from 'primeng/spinner';
 import { FormsModule } from '@angular/forms';
-
+import { SliderModule } from 'primeng/slider';
+import { ParamsComponent } from './components/params/params.component';
+import { FieldsetModule } from 'primeng/fieldset';
+import { PanelModule } from 'primeng/panel';
+import { InputTextModule } from 'primeng/inputtext';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParamsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,13 @@ import { FormsModule } from '@angular/forms';
     TabViewModule,
     SplitButtonModule,
     SpinnerModule,
-    FormsModule
+    FormsModule,
+    SliderModule,
+    FieldsetModule,
+    PanelModule,
+    InputTextModule,
+    InputMaskModule,
+    SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
