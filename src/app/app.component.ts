@@ -12,6 +12,7 @@ export class AppComponent {
   iterations: number;
   sessions: Session[];
 
+  // Init
   ngOnInit() {
     this.iterations = 100;
 
@@ -22,9 +23,11 @@ export class AppComponent {
     this.sessions = [s1, s2];
   }
 
-  onClickNewButton($event){
+  // New button click
+  onClickNewButton(event){
     var s = new Session();
     s.header = "New Session";
     this.sessions.push(s);
   }
+
 }

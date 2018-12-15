@@ -7,15 +7,15 @@
     <!-- Right buttons -->
     <div class="ui-toolbar-group-right">
         <button pButton type="button" (click)="onClickNewButton($event)" label="New" icon="pi pi-plus"></button>
-        <button pButton type="button" label="Open" icon="pi pi-upload"></button>
-        <button pButton type="button" label="Save" icon="pi pi-download"></button>
+        <button pButton type="button" label="Open" icon="pi pi-folder-open"></button>
+        <button pButton type="button" label="Save" icon="pi pi-save"></button>
         <span> </span>&nbsp; &nbsp;
 
         <p-spinner size="4" [(ngModel)]="iterations" [min]="0" [max]="1000"></p-spinner>
 
         <!-- Train buttons -->
-        <button pButton type="button" label="Train" icon="pi pi-refresh" class="ui-button-success"></button>
-        <button pButton type="button" label="Stop" icon="pi pi-circle-on" class="ui-button-danger"></button>
+        <button pButton type="button" label="Train" icon="pi pi-refresh" class="ui-button-rounded ui-button-success"></button>
+        <button pButton type="button" label="Stop" icon="pi pi-circle-on" class="ui-button-rounded ui-button-danger"></button>
     </div>
 </p-toolbar>
 
@@ -24,11 +24,23 @@
     <p-tabPanel *ngFor="let item of sessions; let i = index" [header]="item.header" [selected]="i == 0" [closable]="true">
         <!-- Content -->
         <div class="p-grid">
-            <!-- Configurations -->
+            <!-- Parameters -->
             <div class="p-col-4">
                 <app-params></app-params>
             </div>
-            <div class="p-col-8"></div>
+            <!-- Results -->
+            <div class="p-col-8">
+                <p-tabView>
+                        <!-- Dataset tab -->
+                        <p-tabPanel header="Dataset" leftIcon="pi pi-th-large">
+                            <app-dataset></app-dataset>
+                        </p-tabPanel>
+                        <!-- Results tab -->
+                        <p-tabPanel header="Results" leftIcon="pi pi-chart-bar">
+                            Content 2
+                        </p-tabPanel>
+                    </p-tabView>
+            </div>
         </div>
 
 

@@ -17,20 +17,25 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { SpinnerModule } from 'primeng/spinner';
 import { FormsModule } from '@angular/forms';
 import { SliderModule } from 'primeng/slider';
-import { ParamsComponent } from './components/params/params.component';
 import { FieldsetModule } from 'primeng/fieldset';
 import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputMaskModule } from 'primeng/inputmask';
+import { FileUploadModule } from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
 
+
+import { ParamsComponent } from './components/params/params.component';
+import { DatasetComponent } from './components/dataset/dataset.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParamsComponent
+    ParamsComponent,
+    DatasetComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,9 @@ import { InputMaskModule } from 'primeng/inputmask';
     PanelModule,
     InputTextModule,
     InputMaskModule,
-    SelectButtonModule
+    SelectButtonModule,
+    FileUploadModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
